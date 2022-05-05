@@ -28,8 +28,9 @@ window.onload = () => {
             return;
         }
     }
-
-    buildLink(lang, text);
+    else {
+        buildLink(lang, text);
+    }
 
     getVoices().then(voices => {
         const voice = voices.find(v => v.lang.startsWith(lang)) || voices.find(v => v.default);

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>🦧🦧🦧</title>
+</head>
+<body>
+<script>
+
+window.onload = () => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const b64 = queryParams.get('x');
+    let lang = queryParams.get('lang');
+    let text = queryParams.get('text');
+
+    if(!b64 && (!lang || !text)) {
+        return;
+    }
+
+    if(b64) {
+        const data = decodeBase64Data(b64);
+
+        if(data && data.lang && data.text) {
+            lang = data.lang;
+            text = data.text;
+        }
+        else {
+            return;
+        }
+    }
+
+    buildLink(lang, text);
+
+    getVoices().then(voices => {
+        const voice = voices.find(v => v.lang.startsWith(lang)) || voices.find(v => v.default);
+        speak(voice, text);
+    });
+};
+
+function getVoices() {
+    return new Promise(
+        function (resolve, reject) {
+            const synth = window.speechSynthesis;
+            let id;
+
+            id = setInterval(() => {
+                if (synth.getVoices().length !== 0) {
+                    resolve(synth.getVoices());
+                    clearInterval(id);
+                }
+            }, 10);
+        }
+    )
+}
+
+function speak(voice, text) {
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.voice = voice;
+    utter.pitch = 1; // 0 <-> 2
+    utter.rate = 1; // .5 <-> 2
+    window.speechSynthesis.speak(utter);
+}
+
+function encodeBase64Data(lang, text) {
+    return btoa(JSON.stringify({lang, text}));
+}
+
+function decodeBase64Data(b64) {
+    let data = {};
+    try {
+        data = JSON.parse(atob(b64));
+    } catch (error) {}
+    
+    return data;
+}
+
+function buildLink(lang, text) {
+    const currentlink = document.location.href.includes('?') ? document.location.href.split('?')[0] : document.location.href;
+    const link = `${ currentlink }?x=${ encodeBase64Data(lang, text) }`;
+    document.body.append(link);
+}
+    
+</script>
+</body>
+</html>

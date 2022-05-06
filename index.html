@@ -75,9 +75,10 @@ function speak(voice, text, addBtnIfNotPlaying) {
 function addClickToSpeakBtn(callback) {
     const button = document.createElement('button');
     button.textContent = 'CLICK TO PLAY';
+    button.style.width = '100%';
+    button.style.padding = '20%';
     button.addEventListener('click', callback);
 
-    document.body.appendChild(document.createElement('br'));
     document.body.appendChild(button);
 }
 

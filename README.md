@@ -8,6 +8,6 @@
 
 ## base64 encoded params
 
-- [https://bertrandg.github.io/web-speech-player/?x=eyJsYW5nIjoiZGUiLCJ0ZXh0IjoiSGFsbG8gbWVpbiBGcmV1bmQsIHdpZSBnZWh0IGVzIGRpcj8ifQ==](https://bertrandg.github.io/web-speech-player/?x=eyJsYW5nIjoiZGUiLCJ0ZXh0IjoiSGFsbG8gbWVpbiBGcmV1bmQsIHdpZSBnZWh0IGVzIGRpcj8ifQ==)
 - [https://bertrandg.github.io/web-speech-player/?x=eyJsYW5nIjoiZnIiLCJ0ZXh0IjoiYm9uam91ciBtb24gYW1pLCBjb21tZW50IGNhIHZhPyJ9](https://bertrandg.github.io/web-speech-player/?x=eyJsYW5nIjoiZnIiLCJ0ZXh0IjoiYm9uam91ciBtb24gYW1pLCBjb21tZW50IGNhIHZhPyJ9)
+- [https://bertrandg.github.io/web-speech-player/?x=eyJsYW5nIjoiZGUiLCJ0ZXh0IjoiSGFsbG8gbWVpbiBGcmV1bmQsIHdpZSBnZWh0IGVzIGRpcj8ifQ==](https://bertrandg.github.io/web-speech-player/?x=eyJsYW5nIjoiZGUiLCJ0ZXh0IjoiSGFsbG8gbWVpbiBGcmV1bmQsIHdpZSBnZWh0IGVzIGRpcj8ifQ==)
 

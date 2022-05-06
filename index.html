@@ -34,7 +34,7 @@ window.onload = () => {
 
     getVoices().then(voices => {
         const voice = voices.find(v => v.lang.startsWith(lang)) || voices.find(v => v.default);
-        speak(voice, text);
+        speak(voice, text, true);
     });
 };
 
@@ -54,12 +54,31 @@ function getVoices() {
     )
 }
 
-function speak(voice, text) {
+function speak(voice, text, addBtnIfNotPlaying) {
     const utter = new SpeechSynthesisUtterance(text);
     utter.voice = voice;
     utter.pitch = 1; // 0 <-> 2
     utter.rate = 1; // .5 <-> 2
+    
+    let isPlaying = false;
+    utter.onstart = () => isPlaying = true;
+
     window.speechSynthesis.speak(utter);
+
+    setTimeout(() => {
+        if(!isPlaying && addBtnIfNotPlaying) {
+            addClickToSpeakBtn(() => speak(voice, text, false));
+        }
+    }, 300);
+}
+
+function addClickToSpeakBtn(callback) {
+    const button = document.createElement('button');
+    button.textContent = 'CLICK TO PLAY';
+    button.addEventListener('click', callback);
+
+    document.body.appendChild(document.createElement('br'));
+    document.body.appendChild(button);
 }
 
 function encodeBase64Data(lang, text) {

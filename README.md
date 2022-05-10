@@ -1,5 +1,7 @@
 # web-speech-player
 
+Play with web speech player api
+
 ## clear params
 
 - [https://bertrandg.github.io/web-speech-player/?lang=fr&text=bonjour%20mon%20ami,%20comment%20ca%20va?](https://bertrandg.github.io/web-speech-player/?lang=fr&text=bonjour%20mon%20ami,%20comment%20ca%20va?)
